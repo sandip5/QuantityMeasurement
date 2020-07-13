@@ -15,53 +15,53 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
         double numberInFeet = 5.0;
         double convertedQuantity = quantityMeasurement.unitConverter(numberInFeet);
-        Assert.assertEquals(60.0,convertedQuantity,0.0);
+        Assert.assertEquals(60.0, convertedQuantity, 0.0);
     }
 
     @Test
     public void givenZeroFeetAndZeroFeet_ShouldReturnEqual() {
-            Feet firstFeet = new Feet(0.0);
-            Feet secondFeet = new Feet(0.0);
-            Assert.assertEquals(firstFeet,secondFeet);
+        Feet firstFeet = new Feet(0.0);
+        Feet secondFeet = new Feet(0.0);
+        Assert.assertEquals(firstFeet, secondFeet);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldNullCheck() throws NullPointerException {
-      try{
-          Feet firstFeet = new Feet(null);
-          Feet secondFeet = new Feet(0.0);
-          Assert.assertEquals(firstFeet,secondFeet);
-      } catch (NullPointerException e){
-          e.printStackTrace();
-      }
+        try {
+            Feet firstFeet = new Feet(null);
+            Feet secondFeet = new Feet(0.0);
+            Assert.assertEquals(firstFeet, secondFeet);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldReferenceCheck() {
         Feet firstFeet = new Feet(0.0);
         Feet secondFeet = new Feet(0.0);
-        Assert.assertEquals(firstFeet,secondFeet);
+        Assert.assertEquals(firstFeet, secondFeet);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldTypeCheck() {
         Feet firstFeet = new Feet(0.0);
         QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
-        Assert.assertNotEquals(firstFeet.getClass(),secondFeet.getClass());
+        Assert.assertNotEquals(firstFeet.getClass(), secondFeet.getClass());
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldValueCheck() {
         Feet firstFeet = new Feet(5.0);
         Feet secondFeet = new Feet(0.0);
-        Assert.assertNotEquals(firstFeet,secondFeet);
+        Assert.assertNotEquals(firstFeet, secondFeet);
     }
 
     @Test
     public void givenZeroInchAndZeroInch_ShouldReturnEqual() throws QuantityMeasurementException {
         Inch firstInch = new Inch(0.0);
         Inch secondInch = new Inch(0.0);
-        Assert.assertEquals(firstInch,secondInch);
+        Assert.assertEquals(firstInch, secondInch);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class QuantityMeasurementTest {
         try {
             Inch firstInch = new Inch(null);
             Inch secondInch = new Inch(0.0);
-            Assert.assertEquals(firstInch,secondInch);
+            Assert.assertEquals(firstInch, secondInch);
         } catch (QuantityMeasurementException e) {
             e.getMessage();
         }
@@ -79,16 +79,22 @@ public class QuantityMeasurementTest {
     public void givenPerformTestForEquality_ShouldReferenceCheckForInch() throws QuantityMeasurementException {
         Inch firstInch = new Inch(0.0);
         Inch secondInch = new Inch(0.0);
-        Assert.assertEquals(firstInch,secondInch);
+        Assert.assertEquals(firstInch, secondInch);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldTypeCheckForInch() throws QuantityMeasurementException {
         Inch firstInch = new Inch(0.0);
         QuantityMeasurement secondInch = new QuantityMeasurement(0.0);
-        Assert.assertNotEquals(firstInch.getClass(),secondInch.getClass());
+        Assert.assertNotEquals(firstInch.getClass(), secondInch.getClass());
     }
 
+    @Test
+    public void givenPerformTestForEquality_ShouldValueCheckForInch() throws QuantityMeasurementException {
+        Inch firstInch = new Inch(0.0);
+        Inch secondInch = new Inch(5.0);
+        Assert.assertNotEquals(firstInch, secondInch);
+    }
 
 
 }
