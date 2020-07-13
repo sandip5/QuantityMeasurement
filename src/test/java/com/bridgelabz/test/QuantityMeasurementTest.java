@@ -82,6 +82,13 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(firstInch,secondInch);
     }
 
+    @Test
+    public void givenPerformTestForEquality_ShouldTypeCheckForInch() throws QuantityMeasurementException {
+        Inch firstInch = new Inch(0.0);
+        QuantityMeasurement secondInch = new QuantityMeasurement(0.0);
+        Assert.assertNotEquals(firstInch.getClass(),secondInch.getClass());
+    }
+
 
 
 }
