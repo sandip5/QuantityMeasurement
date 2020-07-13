@@ -13,4 +13,9 @@ public class QuantityMeasurement {
         double numberInInches = numberInFeet * 12;
         return numberInInches;
     }
+
+    public double unitConverter(ConversionType convertTo, double convertValue) {
+        return 0.0;
+
+    }
 }

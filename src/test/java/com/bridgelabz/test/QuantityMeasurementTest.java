@@ -1,6 +1,7 @@
 package com.bridgelabz.test;
 
 import com.bridgelabz.exception.QuantityMeasurementException;
+import com.bridgelabz.service.ConversionType;
 import com.bridgelabz.service.Feet;
 import com.bridgelabz.service.Inch;
 import com.bridgelabz.service.QuantityMeasurement;
@@ -96,5 +97,12 @@ public class QuantityMeasurementTest {
         Assert.assertNotEquals(firstInch, secondInch);
     }
 
+    @Test
+    public void givenQuantityInFeet_ShouldReturnQuantityInYard() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        double convertValue = 5.0;
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.FEET_TO_YARD,convertValue);
+        Assert.assertEquals(60.0, convertedQuantity, 0.0);
+    }
 
 }
