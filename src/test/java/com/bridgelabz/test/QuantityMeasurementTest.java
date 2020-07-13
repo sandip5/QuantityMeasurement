@@ -137,7 +137,13 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
 
-
+    @Test
+    public void givenQuantityOneYard_ShouldNotReturnThreeFeet() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        double convertValue = 1.0;
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.YARD_TO_FEET,convertValue);
+        Assert.assertEquals(3.0, convertedQuantity, 0.0);
+    }
 
 
 }
