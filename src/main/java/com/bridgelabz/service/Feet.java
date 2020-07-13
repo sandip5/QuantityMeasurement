@@ -1,9 +1,11 @@
 package com.bridgelabz.service;
 
-public class Feet {
-    private final double valueInFeet;
+import com.bridgelabz.exception.QuantityMeasurementException;
 
-    public Feet(Double valueInFeet) {
+public class Feet {
+    private double valueInFeet;
+
+    public Feet(Double valueInFeet){
         this.valueInFeet = valueInFeet;
     }
 

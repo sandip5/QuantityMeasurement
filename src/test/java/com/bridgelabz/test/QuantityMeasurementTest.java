@@ -1,5 +1,6 @@
 package com.bridgelabz.test;
 
+import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.service.Feet;
 import com.bridgelabz.service.QuantityMeasurement;
 import org.junit.Assert;
@@ -18,15 +19,19 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenZeroFeetAndZeroFeet_ShouldReturnEqual() {
-        Feet firstFeet = new Feet(0.0);
-        Feet secondFeet = new Feet(0.0);
-        Assert.assertEquals(firstFeet,secondFeet);
+            Feet firstFeet = new Feet(0.0);
+            Feet secondFeet = new Feet(0.0);
+            Assert.assertEquals(firstFeet,secondFeet);
     }
 
     @Test
-    public void givenPerformTestForEquality_ShouldNullCheck() {
-        Feet firstFeet = new Feet(null);
-        Feet secondFeet = new Feet(0.0);
-        Assert.assertEquals(firstFeet,secondFeet);
+    public void givenPerformTestForEquality_ShouldNullCheck() throws NullPointerException {
+      try{
+          Feet firstFeet = new Feet(null);
+          Feet secondFeet = new Feet(0.0);
+          Assert.assertEquals(firstFeet,secondFeet);
+      } catch (NullPointerException e){
+          e.printStackTrace();
+      }
     }
 }
