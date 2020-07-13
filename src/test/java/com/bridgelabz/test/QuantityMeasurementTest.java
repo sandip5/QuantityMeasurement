@@ -2,6 +2,7 @@ package com.bridgelabz.test;
 
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.service.Feet;
+import com.bridgelabz.service.Inch;
 import com.bridgelabz.service.QuantityMeasurement;
 import org.junit.Assert;
 import org.junit.Test;
