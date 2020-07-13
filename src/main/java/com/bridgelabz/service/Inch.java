@@ -8,8 +8,9 @@ public class Inch {
     public Inch(Double valueInInch) throws QuantityMeasurementException {
         try {
             this.valueInInch = valueInInch;
-        } catch (NullPointerException e){
-            throw new QuantityMeasurementException("Null Value Provided", QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION);
+        } catch (NullPointerException e) {
+            throw new QuantityMeasurementException("Null Value Provided",
+                    QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION);
         }
     }
 

@@ -13,46 +13,46 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenQuantityInFeet_ShouldReturnQuantityInInches() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double numberInFeet = 5.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(numberInFeet);
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.FEET_TO_INCH, numberInFeet);
         Assert.assertEquals(60.0, convertedQuantity, 0.0);
     }
 
     @Test
-    public void givenZeroFeetAndZeroFeet_ShouldReturnEqual() {
+    public void givenZeroFeetAndZeroFeet_ShouldReturnEqual() throws QuantityMeasurementException {
         Feet firstFeet = new Feet(0.0);
         Feet secondFeet = new Feet(0.0);
         Assert.assertEquals(firstFeet, secondFeet);
     }
 
     @Test
-    public void givenPerformTestForEquality_ShouldNullCheck() throws NullPointerException {
+    public void givenPerformTestForEquality_ShouldNullCheck() {
         try {
             Feet firstFeet = new Feet(null);
             Feet secondFeet = new Feet(0.0);
             Assert.assertEquals(firstFeet, secondFeet);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+        } catch (QuantityMeasurementException e) {
+            e.getMessage();
         }
     }
 
     @Test
-    public void givenPerformTestForEquality_ShouldReferenceCheck() {
+    public void givenPerformTestForEquality_ShouldReferenceCheck() throws QuantityMeasurementException {
         Feet firstFeet = new Feet(0.0);
         Feet secondFeet = new Feet(0.0);
         Assert.assertEquals(firstFeet, secondFeet);
     }
 
     @Test
-    public void givenPerformTestForEquality_ShouldTypeCheck() {
+    public void givenPerformTestForEquality_ShouldTypeCheck() throws QuantityMeasurementException {
         Feet firstFeet = new Feet(0.0);
         QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
         Assert.assertNotEquals(firstFeet.getClass(), secondFeet.getClass());
     }
 
     @Test
-    public void givenPerformTestForEquality_ShouldValueCheck() {
+    public void givenPerformTestForEquality_ShouldValueCheck() throws QuantityMeasurementException {
         Feet firstFeet = new Feet(5.0);
         Feet secondFeet = new Feet(0.0);
         Assert.assertNotEquals(firstFeet, secondFeet);
@@ -99,51 +99,49 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenQuantityInFeet_ShouldReturnQuantityInYard() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 3.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.FEET_TO_YARD,convertValue);
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.FEET_TO_YARD, convertValue);
         Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
 
     @Test
     public void givenQuantityOneFeet_ShouldNotReturnOneYard() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.FEET_TO_YARD,convertValue);
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.FEET_TO_YARD, convertValue);
         Assert.assertNotEquals(1.0, convertedQuantity, 0.0);
     }
 
     @Test
     public void givenQuantityOneInch_ShouldNotReturnOneYard() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.INCH_TO_YARD,convertValue);
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.INCH_TO_YARD, convertValue);
         Assert.assertNotEquals(1.0, convertedQuantity, 0.0);
     }
 
     @Test
     public void givenQuantityOneYard_ShouldNotReturnThirtySixInch() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.YARD_TO_INCH,convertValue);
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.YARD_TO_INCH, convertValue);
         Assert.assertEquals(36.0, convertedQuantity, 0.0);
     }
 
     @Test
     public void givenQuantityThirtySixInch_ShouldNotReturnOneYard() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 36.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.INCH_TO_YARD,convertValue);
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.INCH_TO_YARD, convertValue);
         Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
 
     @Test
     public void givenQuantityOneYard_ShouldNotReturnThreeFeet() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.YARD_TO_FEET,convertValue);
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.YARD_TO_FEET, convertValue);
         Assert.assertEquals(3.0, convertedQuantity, 0.0);
     }
-
-
 }

@@ -4,14 +4,12 @@ public class QuantityMeasurement {
     public double value;
     private double numberInFeet;
 
-    public QuantityMeasurement(double value) {
-        this.value = value;
+    public QuantityMeasurement() {
+
     }
 
-    public double unitConverter(double numberInFeet) {
-        this.numberInFeet = numberInFeet;
-        double numberInInches = numberInFeet * 12;
-        return numberInInches;
+    public QuantityMeasurement(double value) {
+        this.value = value;
     }
 
     public double unitConverter(ConversionType convertTo, double convertValue) {
