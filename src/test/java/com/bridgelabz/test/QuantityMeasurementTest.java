@@ -34,4 +34,12 @@ public class QuantityMeasurementTest {
           e.printStackTrace();
       }
     }
+
+    @Test
+    public void givenPerdormTestForEquality_ShouldReferenceCheck() {
+        Feet firstFeet = new Feet(0.0);
+        Feet secondFeet = new Feet(0.0);
+        Assert.assertEquals(firstFeet,secondFeet);
+    }
+
 }
