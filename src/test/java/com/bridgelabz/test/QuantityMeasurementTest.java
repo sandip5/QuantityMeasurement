@@ -22,4 +22,11 @@ public class QuantityMeasurementTest {
         Feet secondFeet = new Feet(0.0);
         Assert.assertEquals(firstFeet,secondFeet);
     }
+
+    @Test
+    public void givenPerformTestForEquality_ShouldNullCheck() {
+        Feet firstFeet = new Feet(null);
+        Feet secondFeet = new Feet(0.0);
+        Assert.assertEquals(firstFeet,secondFeet);
+    }
 }

@@ -3,7 +3,7 @@ package com.bridgelabz.service;
 public class Feet {
     private final double valueInFeet;
 
-    public Feet(double valueInFeet) {
+    public Feet(Double valueInFeet) {
         this.valueInFeet = valueInFeet;
     }
 
