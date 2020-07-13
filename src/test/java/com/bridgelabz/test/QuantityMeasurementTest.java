@@ -105,4 +105,12 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
 
+    @Test
+    public void givenQuantityOneFeet_ShouldNotReturnOneYard() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        double convertValue = 1.0;
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.FEET_TO_YARD,convertValue);
+        Assert.assertEquals(1.0, convertedQuantity, 0.0);
+    }
+
 }
