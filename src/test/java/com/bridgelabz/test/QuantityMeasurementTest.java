@@ -121,4 +121,12 @@ public class QuantityMeasurementTest {
         Assert.assertNotEquals(1.0, convertedQuantity, 0.0);
     }
 
+    @Test
+    public void givenQuantityOneYard_ShouldNotReturnThirtySixInch() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
+        double convertValue = 1.0;
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.YARD_TO_INCH,convertValue);
+        Assert.assertEquals(36.0, convertedQuantity, 0.0);
+    }
+
 }
