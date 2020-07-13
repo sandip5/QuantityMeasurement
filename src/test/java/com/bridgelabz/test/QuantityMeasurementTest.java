@@ -49,4 +49,11 @@ public class QuantityMeasurementTest {
         Assert.assertNotEquals(firstFeet.getClass(),secondFeet.getClass());
     }
 
+    @Test
+    public void givenPerformTestForEquality_ShouldValueCheck() {
+        Feet firstFeet = new Feet(5.0);
+        Feet secondFeet = new Feet(0.0);
+        Assert.assertNotEquals(firstFeet,secondFeet);
+    }
+
 }
