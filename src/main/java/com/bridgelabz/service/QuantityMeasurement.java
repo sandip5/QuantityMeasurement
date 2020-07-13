@@ -1,7 +1,12 @@
 package com.bridgelabz.service;
 
 public class QuantityMeasurement {
+    public double value;
     private double numberInFeet;
+
+    public QuantityMeasurement(double value) {
+        this.value = value;
+    }
 
     public double unitConverter(double numberInFeet) {
         this.numberInFeet = numberInFeet;

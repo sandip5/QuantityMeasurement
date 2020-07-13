@@ -11,7 +11,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenQuantityInFeet_ShouldReturnQuantityInInches() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
         double numberInFeet = 5.0;
         double convertedQuantity = quantityMeasurement.unitConverter(numberInFeet);
         Assert.assertEquals(60.0,convertedQuantity,0.0);
@@ -36,10 +36,17 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenPerdormTestForEquality_ShouldReferenceCheck() {
+    public void givenPerformTestForEquality_ShouldReferenceCheck() {
         Feet firstFeet = new Feet(0.0);
         Feet secondFeet = new Feet(0.0);
         Assert.assertEquals(firstFeet,secondFeet);
+    }
+
+    @Test
+    public void givenPerformTestForEquality_ShouldTypeCheck() {
+        Feet firstFeet = new Feet(0.0);
+        QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
+        Assert.assertNotEquals(firstFeet.getClass(),secondFeet.getClass());
     }
 
 }
