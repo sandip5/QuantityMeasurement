@@ -15,7 +15,7 @@ public class QuantityMeasurement {
     }
 
     public double unitConverter(ConversionType convertTo, double convertValue) {
-        return 0.0;
-
+        double convertedValue = convertValue * convertTo.conversionFactor;
+        return convertedValue;
     }
 }

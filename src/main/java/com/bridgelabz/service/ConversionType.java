@@ -1,9 +1,9 @@
 package com.bridgelabz.service;
 
 public enum ConversionType {
-    FEET_TO_YARD(1/3);
+    FEET_TO_YARD(0.3333333333333333);
 
-    private double conversionFactor;
+    public double conversionFactor;
 
     ConversionType(double conversionFactor) {
         this.conversionFactor = conversionFactor;

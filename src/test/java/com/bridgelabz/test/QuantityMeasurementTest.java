@@ -100,9 +100,9 @@ public class QuantityMeasurementTest {
     @Test
     public void givenQuantityInFeet_ShouldReturnQuantityInYard() {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement(0.0);
-        double convertValue = 5.0;
+        double convertValue = 3.0;
         double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.FEET_TO_YARD,convertValue);
-        Assert.assertEquals(60.0, convertedQuantity, 0.0);
+        Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
 
 }
