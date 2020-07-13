@@ -13,8 +13,8 @@ public class QuantityMeasurementException extends Throwable{
 
     public ExceptionType type;
 
-    public QuantityMeasurementException(ExceptionType type) {
-//        super(message);
+    public QuantityMeasurementException(String message, ExceptionType type) {
+        super(message);
         this.type = type;
     }
 }

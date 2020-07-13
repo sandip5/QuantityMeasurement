@@ -58,11 +58,24 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenZeroInchAndZeroInch_ShouldReturnEqual() {
+    public void givenZeroInchAndZeroInch_ShouldReturnEqual() throws QuantityMeasurementException {
         Inch firstInch = new Inch(0.0);
         Inch secondInch = new Inch(0.0);
         Assert.assertEquals(firstInch,secondInch);
     }
+
+    @Test
+    public void givenPerformTestForEquality_ShouldNullCheckForInch() {
+        try {
+            Inch firstInch = new Inch(null);
+            Inch secondInch = new Inch(0.0);
+            Assert.assertEquals(firstInch,secondInch);
+        } catch (QuantityMeasurementException e) {
+            e.getMessage();
+        }
+    }
+
+
 
 
 }
