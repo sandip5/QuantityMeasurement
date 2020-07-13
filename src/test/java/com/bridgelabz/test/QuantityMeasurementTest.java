@@ -75,6 +75,12 @@ public class QuantityMeasurementTest {
         }
     }
 
+    @Test
+    public void givenPerformTestForEquality_ShouldReferenceCheckForInch() throws QuantityMeasurementException {
+        Inch firstInch = new Inch(0.0);
+        Inch secondInch = new Inch(0.0);
+        Assert.assertEquals(firstInch,secondInch);
+    }
 
 
 
