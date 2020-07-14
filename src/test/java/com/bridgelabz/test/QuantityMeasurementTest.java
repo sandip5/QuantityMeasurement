@@ -152,4 +152,13 @@ public class QuantityMeasurementTest {
         double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.INCH_TO_CM, convertValue);
         Assert.assertEquals(5.0, convertedQuantity, 0.0);
     }
+
+    @Test
+    public void givenQuantityFiveCentiMeter_ShouldNotReturnTwoInch() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double convertValue = 5.0;
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.INCH_TO_CM, convertValue);
+        Assert.assertEquals(2.0, convertedQuantity, 0.0);
+    }
+
 }
