@@ -157,7 +157,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityFiveCentiMeter_ShouldNotReturnTwoInch() {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 5.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.INCH_TO_CM, convertValue);
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.CM_TO_INCH, convertValue);
         Assert.assertEquals(2.0, convertedQuantity, 0.0);
     }
 
