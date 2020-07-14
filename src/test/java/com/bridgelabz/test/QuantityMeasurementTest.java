@@ -1,9 +1,9 @@
 package com.bridgelabz.test;
 
 import com.bridgelabz.exception.QuantityMeasurementException;
-import com.bridgelabz.service.ConversionType;
-import com.bridgelabz.service.Feet;
-import com.bridgelabz.service.Inch;
+import com.bridgelabz.utility.ConversionType;
+import com.bridgelabz.model.Feet;
+import com.bridgelabz.model.Inch;
 import com.bridgelabz.service.QuantityMeasurement;
 import org.junit.Assert;
 import org.junit.Test;
@@ -143,5 +143,13 @@ public class QuantityMeasurementTest {
         double convertValue = 1.0;
         double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.YARD_TO_FEET, convertValue);
         Assert.assertEquals(3.0, convertedQuantity, 0.0);
+    }
+
+    @Test
+    public void givenQuantityTwoInch_ShouldNotReturnFiveCentiMeter() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double convertValue = 2.0;
+        double convertedQuantity = quantityMeasurement.unitConverter(ConversionType.INCH_TO_CM, convertValue);
+        Assert.assertEquals(5.0, convertedQuantity, 0.0);
     }
 }

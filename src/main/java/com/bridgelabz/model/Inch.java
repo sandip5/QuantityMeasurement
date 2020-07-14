@@ -1,4 +1,4 @@
-package com.bridgelabz.service;
+package com.bridgelabz.model;
 
 import com.bridgelabz.exception.QuantityMeasurementException;
 
