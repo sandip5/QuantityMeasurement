@@ -21,18 +21,17 @@ public class LengthAdapter extends QuantityMeasurementAdapter {
 
     }
 
+
     public enum LengthUnit {
         FEET, INCH, YARD, CM
     }
 
-    public LengthUnit lengthUnit;
     public double convertValue;
     public ConversionType conversionType;
 
     @Override
-    public double unitType(LengthUnit unit, ConversionType convertTo, double convertValue) {
+    public double unitType(ConversionType convertTo, double convertValue) {
         this.conversionType = convertTo;
-        this.lengthUnit = unit;
         this.convertValue = convertValue;
         return super.unitConverter(conversionType, this.convertValue);
     }
@@ -45,7 +44,6 @@ public class LengthAdapter extends QuantityMeasurementAdapter {
         return Double.compare(that.value, value) == 0 &&
                 Double.compare(that.convertValue, convertValue) == 0 &&
                 unit == that.unit &&
-                lengthUnit == that.lengthUnit &&
                 conversionType == that.conversionType;
     }
 }
