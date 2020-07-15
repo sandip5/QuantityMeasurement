@@ -202,6 +202,17 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(24.0, total, 0.0);
     }
 
+    @Test
+    public void givenQuantity2InchAnd2AndHalfCM_WhenAdded_ShouldNotReturnThreeInch() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        LengthAdapter firstValue = new LengthAdapter(LengthAdapter.LengthUnit.INCH, 2.0);
+        double secondConvertValue = 5d/2d;
+        double secondValue = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.CM,
+                ConversionType.CM_TO_INCH, secondConvertValue);
+        double total = firstValue.value + secondValue;
+        Assert.assertEquals(3.0, total, 0.0);
+    }
+
 
 
 
