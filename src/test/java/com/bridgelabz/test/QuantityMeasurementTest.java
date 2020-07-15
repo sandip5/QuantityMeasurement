@@ -213,8 +213,12 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(3.0, total, 0.0);
     }
 
-
-
-
-
+    @Test
+    public void givenQuantityOneGallon_ShouldReturnThreePointSevenEightLitres() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double convertValue = 1.0;
+        double secondValue = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.CM,
+                ConversionType.GALLON_TO_LITER, convertValue);
+        Assert.assertEquals(3.78, secondValue, 0.0);
+    }
 }
