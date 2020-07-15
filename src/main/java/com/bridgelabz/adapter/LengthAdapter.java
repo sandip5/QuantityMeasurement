@@ -2,17 +2,19 @@ package com.bridgelabz.adapter;
 
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.utility.ConversionType;
+import com.bridgelabz.utility.QuantityType;
+import com.bridgelabz.utility.UnitName;
+
+import java.util.Objects;
 
 public class LengthAdapter extends QuantityMeasurementAdapter {
-    public LengthAdapter() {
-    }
 
     public double value;
-    public LengthUnit unit;
+    public UnitName unit;
 
-    public LengthAdapter(LengthUnit unit, Double value) throws QuantityMeasurementException {
+    public LengthAdapter(UnitName type, Double value) throws QuantityMeasurementException {
         try {
-            this.unit = unit;
+            this.unit = type;
             this.value = value;
         } catch (NullPointerException e) {
             throw new QuantityMeasurementException("Null Value Provided",
@@ -20,12 +22,15 @@ public class LengthAdapter extends QuantityMeasurementAdapter {
         }
 
     }
-
     public double convertValue;
     public ConversionType conversionType;
 
+    public LengthAdapter() {
+
+    }
+
     @Override
-    public double unitType(ConversionType convertTo, double convertValue) {
+    public double unitType(UnitName type, ConversionType convertTo, double convertValue) {
         this.conversionType = convertTo;
         this.convertValue = convertValue;
         return super.unitConverter(conversionType, this.convertValue);
@@ -36,8 +41,8 @@ public class LengthAdapter extends QuantityMeasurementAdapter {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LengthAdapter that = (LengthAdapter) o;
-        return Double.compare(that.value, value) == 0 &&
-                Double.compare(that.convertValue, convertValue) == 0 &&
+        return Double.compare(that.convertValue, convertValue) == 0 &&
+                Objects.equals(value, that.value) &&
                 unit == that.unit &&
                 conversionType == that.conversionType;
     }

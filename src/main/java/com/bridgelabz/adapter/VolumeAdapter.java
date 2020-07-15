@@ -2,6 +2,8 @@ package com.bridgelabz.adapter;
 
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.utility.ConversionType;
+import com.bridgelabz.utility.QuantityType;
+import com.bridgelabz.utility.UnitName;
 
 public class VolumeAdapter extends QuantityMeasurementAdapter{
     public ConversionType conversionType;
@@ -14,11 +16,11 @@ public class VolumeAdapter extends QuantityMeasurementAdapter{
     }
 
     public double value;
-    public VolumeAdapter.VolumeUnit unit;
+    public UnitName unit;
 
-    public VolumeAdapter(VolumeAdapter.VolumeUnit unit, Double value) throws QuantityMeasurementException {
+    public VolumeAdapter(UnitName type, Double value) throws QuantityMeasurementException {
         try {
-            this.unit = unit;
+            this.unit = type;
             this.value = value;
         } catch (NullPointerException e) {
             throw new QuantityMeasurementException("Null Value Provided",
@@ -28,7 +30,7 @@ public class VolumeAdapter extends QuantityMeasurementAdapter{
     }
 
     @Override
-    public double unitType(ConversionType convertTo, double convertValue) {
+    public double unitType(UnitName type, ConversionType convertTo, double convertValue) {
         this.conversionType = convertTo;
         this.convertValue = convertValue;
         return super.unitConverter(conversionType, this.convertValue);
