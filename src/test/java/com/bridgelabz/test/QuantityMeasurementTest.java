@@ -189,6 +189,21 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(14.0, total, 0.0);
     }
 
+    @Test
+    public void givenQuantityOneFeetAndOneFeet_WhenAdded_ShouldNotReturnFourteenInch() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double firstConvertValue = 1.0;
+        double firstValue = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.FEET,
+                ConversionType.FEET_TO_INCH, firstConvertValue);
+        double secondConvertValue = 1.0;
+        double secondValue = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.FEET,
+                ConversionType.FEET_TO_INCH, secondConvertValue);
+        double total = firstValue + secondValue;
+        Assert.assertEquals(24.0, total, 0.0);
+    }
+
+
+
 
 
 }
