@@ -5,9 +5,7 @@ import com.bridgelabz.utility.ConversionType;
 public class QuantityMeasurement {
     public double value;
 
-    public QuantityMeasurement() {
-
-    }
+    public QuantityMeasurement() { }
 
     public QuantityMeasurement(double value) {
         this.value = value;
