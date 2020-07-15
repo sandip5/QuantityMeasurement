@@ -169,4 +169,15 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(2.0, convertedQuantity, 0.0);
     }
 
+    @Test
+    public void givenQuantityTwoInchAndTwoInch_WhenAdded_ShouldNotReturnFourInch() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        LengthAdapter firstInch = new LengthAdapter(LengthAdapter.LengthUnit.INCH, 2.0);
+        LengthAdapter secondInch = new LengthAdapter(LengthAdapter.LengthUnit.INCH, 2.0);
+        double total = firstInch.value + secondInch.value;
+        Assert.assertEquals(4.0, total, 0.0);
+    }
+
+
+
 }
