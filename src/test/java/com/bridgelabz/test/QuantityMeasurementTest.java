@@ -1,10 +1,10 @@
 package com.bridgelabz.test;
 
 import com.bridgelabz.adapter.LengthAdapter;
-import com.bridgelabz.adapter.VolumeAdapter;
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.service.QuantityMeasurement;
 import com.bridgelabz.utility.ConversionType;
+import com.bridgelabz.utility.QuantityType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityInFeet_ShouldReturnQuantityInInches() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double value = 5.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.FEET,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.FEET_TO_INCH, value);
         Assert.assertEquals(60.0, convertedQuantity, 0.0);
     }
@@ -102,7 +102,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityInFeet_ShouldReturnQuantityInYard() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 3.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.FEET,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.FEET_TO_YARD, convertValue);
         Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
@@ -111,7 +111,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityOneFeet_ShouldNotReturnOneYard() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.FEET,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.FEET_TO_YARD, convertValue);
         Assert.assertNotEquals(1.0, convertedQuantity, 0.0);
     }
@@ -120,7 +120,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityOneInch_ShouldNotReturnOneYard() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.INCH,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.INCH_TO_YARD, convertValue);
         Assert.assertNotEquals(1.0, convertedQuantity, 0.0);
     }
@@ -129,7 +129,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityOneYard_ShouldReturnThirtySixInch() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.YARD,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.YARD_TO_INCH, convertValue);
         Assert.assertEquals(36.0, convertedQuantity, 0.0);
     }
@@ -138,7 +138,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityThirtySixInch_ShouldReturnOneYard() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 36.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.INCH,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.INCH_TO_YARD, convertValue);
         Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
@@ -147,7 +147,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityOneYard_ShouldNotReturnThreeFeet() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.YARD,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.YARD_TO_FEET, convertValue);
         Assert.assertEquals(3.0, convertedQuantity, 0.0);
     }
@@ -156,7 +156,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityTwoInch_ShouldNotReturnFiveCentiMeter() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 2.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.CM,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.INCH_TO_CM, convertValue);
         Assert.assertEquals(5.0, convertedQuantity, 0.0);
     }
@@ -165,7 +165,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityFiveCentiMeter_ShouldNotReturnTwoInch() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 5.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.CM,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.CM_TO_INCH, convertValue);
         Assert.assertEquals(2.0, convertedQuantity, 0.0);
     }
@@ -183,7 +183,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityOneFeetAndTwoInch_WhenAdded_ShouldNotReturnFourteenInch() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double firstValue = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.FEET,
+        double firstValue = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.FEET_TO_INCH, convertValue);
         LengthAdapter secondValue = new LengthAdapter(LengthAdapter.LengthUnit.INCH, 2.0);
         double total = firstValue + secondValue.value;
@@ -194,10 +194,10 @@ public class QuantityMeasurementTest {
     public void givenQuantityOneFeetAndOneFeet_WhenAdded_ShouldNotReturnFourteenInch() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double firstConvertValue = 1.0;
-        double firstValue = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.FEET,
+        double firstValue = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.FEET_TO_INCH, firstConvertValue);
         double secondConvertValue = 1.0;
-        double secondValue = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.FEET,
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.FEET_TO_INCH, secondConvertValue);
         double total = firstValue + secondValue;
         Assert.assertEquals(24.0, total, 0.0);
@@ -208,7 +208,7 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         LengthAdapter firstValue = new LengthAdapter(LengthAdapter.LengthUnit.INCH, 2.0);
         double secondConvertValue = 5d/2d;
-        double secondValue = quantityMeasurement.unitConverter(LengthAdapter.LengthUnit.CM,
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.LENGTH,
                 ConversionType.CM_TO_INCH, secondConvertValue);
         double total = firstValue.value + secondValue;
         Assert.assertEquals(3.0, total, 0.0);
@@ -218,7 +218,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityOneGallon_ShouldReturnThreePointSevenEightLitres() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double secondValue = quantityMeasurement.unitConverter(VolumeAdapter.VolumeUnit.GALLON,
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.VOLUME,
                 ConversionType.GALLON_TO_LITER, convertValue);
         Assert.assertEquals(3.78, secondValue, 0.0);
     }

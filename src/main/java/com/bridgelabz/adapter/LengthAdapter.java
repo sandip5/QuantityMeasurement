@@ -21,11 +21,6 @@ public class LengthAdapter extends QuantityMeasurementAdapter {
 
     }
 
-
-    public enum LengthUnit {
-        FEET, INCH, YARD, CM
-    }
-
     public double convertValue;
     public ConversionType conversionType;
 
