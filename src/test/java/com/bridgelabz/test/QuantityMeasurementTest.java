@@ -1,6 +1,7 @@
 package com.bridgelabz.test;
 
 import com.bridgelabz.adapter.LengthAdapter;
+import com.bridgelabz.adapter.VolumeAdapter;
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.service.QuantityMeasurement;
 import com.bridgelabz.utility.ConversionType;
@@ -250,5 +251,17 @@ public class QuantityMeasurementTest {
         double secondValue = quantityMeasurement.unitConverter(UnitName.LITER,
                 ConversionType.LITER_TO_ML, convertValue);
         Assert.assertEquals(1000.0, secondValue, 0.0);
+    }
+
+    @Test
+    public void given1GallonAndThreePointSevenEightLitres_ShouldReturnSevenPointSevenFiveLitres()
+            throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double convertValue = 1.0;
+        double firstValue = quantityMeasurement.unitConverter(UnitName.GALLON,
+                ConversionType.GALLON_TO_LITER, convertValue);
+        VolumeAdapter secondValue = new VolumeAdapter(UnitName.LITER,189d/50d);
+        double total = quantityMeasurement.addition(firstValue, secondValue.value);
+        Assert.assertEquals(7.56,total,0.0);
     }
 }
