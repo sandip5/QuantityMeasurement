@@ -2,7 +2,6 @@ package com.bridgelabz.test;
 
 import com.bridgelabz.adapter.Length;
 import com.bridgelabz.adapter.Volume;
-import com.bridgelabz.adapter.Weight;
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.service.QuantityMeasurement;
 import com.bridgelabz.utility.ConversionType;
@@ -19,7 +18,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double value = 5.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.FEET,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.FEET,
                 ConversionType.FEET_TO_INCH, value);
         Assert.assertEquals(60.0, convertedQuantity, 0.0);
     }
@@ -113,7 +112,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 3.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.FEET,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.FEET,
                 ConversionType.FEET_TO_YARD, convertValue);
         Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
@@ -123,7 +122,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.FEET,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.FEET,
                 ConversionType.FEET_TO_YARD, convertValue);
         Assert.assertNotEquals(1.0, convertedQuantity, 0.0);
     }
@@ -133,7 +132,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.INCH,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.INCH,
                 ConversionType.INCH_TO_YARD, convertValue);
         Assert.assertNotEquals(1.0, convertedQuantity, 0.0);
     }
@@ -143,7 +142,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.YARD,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.YARD,
                 ConversionType.YARD_TO_INCH, convertValue);
         Assert.assertEquals(36.0, convertedQuantity, 0.0);
     }
@@ -153,7 +152,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 36.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.INCH,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.INCH,
                 ConversionType.INCH_TO_YARD, convertValue);
         Assert.assertEquals(1.0, convertedQuantity, 0.0);
     }
@@ -163,7 +162,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.YARD,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.YARD,
                 ConversionType.YARD_TO_FEET, convertValue);
         Assert.assertEquals(3.0, convertedQuantity, 0.0);
     }
@@ -173,7 +172,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 2.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.INCH,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.INCH,
                 ConversionType.INCH_TO_CM, convertValue);
         Assert.assertEquals(5.0, convertedQuantity, 0.0);
     }
@@ -183,7 +182,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 5.0;
-        double convertedQuantity = quantityMeasurement.unitConverter(UnitName.CM,
+        double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.CM,
                 ConversionType.CM_TO_INCH, convertValue);
         Assert.assertEquals(2.0, convertedQuantity, 0.0);
     }
@@ -203,7 +202,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double firstValue = quantityMeasurement.unitConverter(UnitName.FEET,
+        double firstValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.FEET,
                 ConversionType.FEET_TO_INCH, convertValue);
         Length secondValue = new Length(UnitName.INCH, 2.0);
         double total = firstValue + secondValue.value;
@@ -215,10 +214,10 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double firstConvertValue = 1.0;
-        double firstValue = quantityMeasurement.unitConverter(UnitName.FEET,
+        double firstValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.FEET,
                 ConversionType.FEET_TO_INCH, firstConvertValue);
         double secondConvertValue = 1.0;
-        double secondValue = quantityMeasurement.unitConverter(UnitName.FEET,
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.FEET,
                 ConversionType.FEET_TO_INCH, secondConvertValue);
         double total = firstValue + secondValue;
         Assert.assertEquals(24.0, total, 0.0);
@@ -230,7 +229,7 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         Length firstValue = new Length(UnitName.INCH, 2.0);
         double secondConvertValue = 5d / 2d;
-        double secondValue = quantityMeasurement.unitConverter(UnitName.CM,
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.CM,
                 ConversionType.CM_TO_INCH, secondConvertValue);
         double total = quantityMeasurement.addition(firstValue.value, secondValue);
         Assert.assertEquals(3.0, total, 0.0);
@@ -241,7 +240,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double secondValue = quantityMeasurement.unitConverter(UnitName.GALLON,
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.GALLON,
                 ConversionType.GALLON_TO_LITER, convertValue);
         Assert.assertEquals(3.78, secondValue, 0.0);
     }
@@ -250,7 +249,7 @@ public class QuantityMeasurementTest {
     public void givenQuantityOneLiter_ShouldReturnThousandML() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double secondValue = quantityMeasurement.unitConverter(UnitName.LITER,
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.LITER,
                 ConversionType.LITER_TO_ML, convertValue);
         Assert.assertEquals(1000.0, secondValue, 0.0);
     }
@@ -260,7 +259,7 @@ public class QuantityMeasurementTest {
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double firstValue = quantityMeasurement.unitConverter(UnitName.GALLON,
+        double firstValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.GALLON,
                 ConversionType.GALLON_TO_LITER, convertValue);
         Volume secondValue = new Volume(UnitName.LITER,189d/50d);
         double total = quantityMeasurement.addition(firstValue, secondValue.value);
@@ -271,7 +270,7 @@ public class QuantityMeasurementTest {
     public void given1KG_ShouldReturn1000Gram() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedValue = quantityMeasurement.unitConverter(UnitName.KG,
+        double convertedValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.KG,
                 ConversionType.KG_TO_GRAM, convertValue);
         Assert.assertEquals(1000.0,convertedValue,0.0);
     }
@@ -280,7 +279,7 @@ public class QuantityMeasurementTest {
     public void given1Tone_ShouldReturn1000KG() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
-        double convertedValue = quantityMeasurement.unitConverter(UnitName.TONE,
+        double convertedValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.TONE,
                 ConversionType.TONE_TO_KG, convertValue);
         Assert.assertEquals(1000.0,convertedValue,0.0);
     }
@@ -289,12 +288,31 @@ public class QuantityMeasurementTest {
     public void given1ToneAnd1000Gram_WhenAdded_ShouldReturn1001KG() throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double firstConvertValue = 1.0;
-        double firstValue = quantityMeasurement.unitConverter(UnitName.TONE,
+        double firstValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.TONE,
                 ConversionType.TONE_TO_KG, firstConvertValue);
         double secondConvertValue = 1000.0;
-        double secondValue = quantityMeasurement.unitConverter(UnitName.GRAM,
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.GRAM,
                 ConversionType.GRAM_TO_KG, secondConvertValue);
         double total = quantityMeasurement.addition(firstValue, secondValue);
-        Assert.assertEquals(1001.0,total,0.0);
+        Assert.assertEquals(1001.0,total,0.);
     }
+
+    @Test
+    public void given212F_ShouldReturn100C() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double convertValue = 212.0;
+        double convertedValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE,UnitName.FAHRENHEIT,
+                ConversionType.FAHRENHEIT_TO_CELSIUS, convertValue);
+        Assert.assertEquals(100.0, convertedValue, 0.0);
+    }
+
+    @Test
+    public void given100C_ShouldReturn212F() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double convertValue = 100.0;
+        double convertedValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE,UnitName.CELSIUS,
+                ConversionType.CELSIUS_TO_FAHRENHEIT, convertValue);
+        Assert.assertEquals(212.0, convertedValue, 0.0);
+    }
+
 }

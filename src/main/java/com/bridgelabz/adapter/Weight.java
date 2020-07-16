@@ -4,12 +4,15 @@ import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.utility.ConversionType;
 import com.bridgelabz.utility.UnitName;
 
-public class Weight {
+public class Weight extends QuantityMeasurementAdapter {
     public ConversionType conversionType;
     public double convertValue;
 
-    public enum WeightUnit {
-        KG, GRAM, TONNES
+    @Override
+    public double unitType(UnitName type, ConversionType convertTo, double convertValue) {
+        this.conversionType = convertTo;
+        this.convertValue = convertValue;
+        return super.unitConverter(conversionType, this.convertValue);
     }
     public Weight() {
     }
