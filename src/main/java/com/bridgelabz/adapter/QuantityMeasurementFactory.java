@@ -6,7 +6,7 @@ import com.bridgelabz.utility.UnitName;
 
 public class QuantityMeasurementFactory {
     public double loadConversionDetail(QuantityType quantityType, UnitName type, ConversionType convertTo, double convertValue) {
-        switch (quantityType){
+        switch (quantityType) {
             case LENGTH:
                 return new Length().unitType(type, convertTo, convertValue);
             case VOLUME:

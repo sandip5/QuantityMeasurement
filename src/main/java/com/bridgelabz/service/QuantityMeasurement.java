@@ -8,12 +8,10 @@ import com.bridgelabz.utility.UnitName;
 
 public class QuantityMeasurement {
 
-    public QuantityMeasurement() {
-    }
+    public QuantityMeasurement() { }
 
     /**
      * UnitConverter Convert One Length Unit To Another Length Unit
-     *
      *
      * @param quantityType
      * @param unit
