@@ -1,5 +1,5 @@
 package com.bridgelabz.utility;
 
 public enum QuantityType {
-    LENGTH,VOLUME;
+    LENGTH, VOLUME, WEIGHT;
 }

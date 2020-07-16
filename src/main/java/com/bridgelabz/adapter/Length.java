@@ -2,17 +2,16 @@ package com.bridgelabz.adapter;
 
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.utility.ConversionType;
-import com.bridgelabz.utility.QuantityType;
 import com.bridgelabz.utility.UnitName;
 
 import java.util.Objects;
 
-public class LengthAdapter extends QuantityMeasurementAdapter {
+public class Length extends QuantityMeasurementAdapter {
 
     public double value;
     public UnitName unit;
 
-    public LengthAdapter(UnitName type, Double value) throws QuantityMeasurementException {
+    public Length(UnitName type, Double value) throws QuantityMeasurementException {
         try {
             this.unit = type;
             this.value = value;
@@ -25,7 +24,7 @@ public class LengthAdapter extends QuantityMeasurementAdapter {
     public double convertValue;
     public ConversionType conversionType;
 
-    public LengthAdapter() {
+    public Length() {
 
     }
 
@@ -40,7 +39,7 @@ public class LengthAdapter extends QuantityMeasurementAdapter {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LengthAdapter that = (LengthAdapter) o;
+        Length that = (Length) o;
         return Double.compare(that.convertValue, convertValue) == 0 &&
                 Objects.equals(value, that.value) &&
                 unit == that.unit &&

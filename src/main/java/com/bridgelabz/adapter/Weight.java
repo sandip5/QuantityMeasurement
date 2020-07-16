@@ -2,23 +2,22 @@ package com.bridgelabz.adapter;
 
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.utility.ConversionType;
-import com.bridgelabz.utility.QuantityType;
 import com.bridgelabz.utility.UnitName;
 
-public class VolumeAdapter extends QuantityMeasurementAdapter{
+public class Weight {
     public ConversionType conversionType;
     public double convertValue;
 
-    public enum VolumeUnit {
-        GALLON,LITER
+    public enum WeightUnit {
+        KG, GRAM, TONNES
     }
-    public VolumeAdapter() {
+    public Weight() {
     }
 
     public double value;
     public UnitName unit;
 
-    public VolumeAdapter(UnitName type, Double value) throws QuantityMeasurementException {
+    public Weight(UnitName type, Double value) throws QuantityMeasurementException {
         try {
             this.unit = type;
             this.value = value;
@@ -26,13 +25,16 @@ public class VolumeAdapter extends QuantityMeasurementAdapter{
             throw new QuantityMeasurementException("Null Value Provided",
                     QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION);
         }
-
     }
 
     @Override
-    public double unitType(UnitName type, ConversionType convertTo, double convertValue) {
-        this.conversionType = convertTo;
-        this.convertValue = convertValue;
-        return super.unitConverter(conversionType, this.convertValue);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Weight weight = (Weight) o;
+        return Double.compare(weight.convertValue, convertValue) == 0 &&
+                Double.compare(weight.value, value) == 0 &&
+                conversionType == weight.conversionType &&
+                unit == weight.unit;
     }
 }

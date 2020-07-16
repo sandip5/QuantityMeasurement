@@ -1,10 +1,12 @@
 package com.bridgelabz.test;
 
-import com.bridgelabz.adapter.LengthAdapter;
-import com.bridgelabz.adapter.VolumeAdapter;
+import com.bridgelabz.adapter.Length;
+import com.bridgelabz.adapter.Volume;
+import com.bridgelabz.adapter.Weight;
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.service.QuantityMeasurement;
 import com.bridgelabz.utility.ConversionType;
+import com.bridgelabz.utility.QuantityType;
 import com.bridgelabz.utility.UnitName;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,16 +27,16 @@ public class QuantityMeasurementTest {
     @Test
     public void givenZeroFeetAndZeroFeet_ShouldReturnEqual()
             throws QuantityMeasurementException {
-        LengthAdapter firstLength = new LengthAdapter(UnitName.FEET, 0.0);
-        LengthAdapter secondLength = new LengthAdapter(UnitName.FEET, 0.0);
+        Length firstLength = new Length(UnitName.FEET, 0.0);
+        Length secondLength = new Length(UnitName.FEET, 0.0);
         Assert.assertEquals(firstLength, secondLength);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldNullCheck() {
         try {
-            LengthAdapter firstLength = new LengthAdapter(UnitName.FEET, null);
-            LengthAdapter secondLength = new LengthAdapter(UnitName.FEET, 0.0);
+            Length firstLength = new Length(UnitName.FEET, null);
+            Length secondLength = new Length(UnitName.FEET, 0.0);
             Assert.assertEquals(firstLength, secondLength);
         } catch (QuantityMeasurementException e) {
             e.getMessage();
@@ -44,38 +46,38 @@ public class QuantityMeasurementTest {
     @Test
     public void givenPerformTestForEquality_ShouldReferenceCheck()
             throws QuantityMeasurementException {
-        LengthAdapter firstLength = new LengthAdapter(UnitName.FEET, 0.0);
-        LengthAdapter secondLength = new LengthAdapter(UnitName.FEET, 0.0);
+        Length firstLength = new Length(UnitName.FEET, 0.0);
+        Length secondLength = new Length(UnitName.FEET, 0.0);
         Assert.assertEquals(firstLength, secondLength);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldTypeCheck() throws QuantityMeasurementException {
-        LengthAdapter firstLength = new LengthAdapter(UnitName.FEET, 0.0);
-        LengthAdapter secondFeet = new LengthAdapter(UnitName.INCH, 0.0);
+        Length firstLength = new Length(UnitName.FEET, 0.0);
+        Length secondFeet = new Length(UnitName.INCH, 0.0);
         Assert.assertNotEquals(firstLength.unit, secondFeet.unit);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldValueCheck() throws QuantityMeasurementException {
-        LengthAdapter firstLength = new LengthAdapter(UnitName.INCH, 5.0);
-        LengthAdapter secondLength = new LengthAdapter(UnitName.INCH, 0.0);
+        Length firstLength = new Length(UnitName.INCH, 5.0);
+        Length secondLength = new Length(UnitName.INCH, 0.0);
         Assert.assertNotEquals(firstLength.value, secondLength.value);
     }
 
     @Test
     public void givenZeroInchAndZeroInch_ShouldReturnEqual()
             throws QuantityMeasurementException {
-        LengthAdapter firstInch = new LengthAdapter(UnitName.INCH, 0.0);
-        LengthAdapter secondInch = new LengthAdapter(UnitName.INCH, 0.0);
+        Length firstInch = new Length(UnitName.INCH, 0.0);
+        Length secondInch = new Length(UnitName.INCH, 0.0);
         Assert.assertEquals(firstInch, secondInch);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldNullCheckForInch() {
         try {
-            LengthAdapter firstInch = new LengthAdapter(UnitName.INCH, null);
-            LengthAdapter secondInch = new LengthAdapter(UnitName.INCH, 0.0);
+            Length firstInch = new Length(UnitName.INCH, null);
+            Length secondInch = new Length(UnitName.INCH, 0.0);
             Assert.assertEquals(firstInch, secondInch);
         } catch (QuantityMeasurementException e) {
             e.getMessage();
@@ -85,24 +87,24 @@ public class QuantityMeasurementTest {
     @Test
     public void givenPerformTestForEquality_ShouldReferenceCheckForInch()
             throws QuantityMeasurementException {
-        LengthAdapter firstInch = new LengthAdapter(UnitName.INCH, 0.0);
-        LengthAdapter secondInch = new LengthAdapter(UnitName.INCH, 0.0);
+        Length firstInch = new Length(UnitName.INCH, 0.0);
+        Length secondInch = new Length(UnitName.INCH, 0.0);
         Assert.assertEquals(firstInch, secondInch);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldTypeCheckForInch()
             throws QuantityMeasurementException {
-        LengthAdapter firstInch = new LengthAdapter(UnitName.INCH, 0.0);
-        LengthAdapter secondInch = new LengthAdapter(UnitName.FEET, 0.0);
+        Length firstInch = new Length(UnitName.INCH, 0.0);
+        Length secondInch = new Length(UnitName.FEET, 0.0);
         Assert.assertNotEquals(firstInch.unit, secondInch.unit);
     }
 
     @Test
     public void givenPerformTestForEquality_ShouldValueCheckForInch()
             throws QuantityMeasurementException {
-        LengthAdapter firstInch = new LengthAdapter(UnitName.INCH, 0.0);
-        LengthAdapter secondInch = new LengthAdapter(UnitName.INCH, 5.0);
+        Length firstInch = new Length(UnitName.INCH, 0.0);
+        Length secondInch = new Length(UnitName.INCH, 5.0);
         Assert.assertNotEquals(firstInch.value, secondInch.value);
     }
 
@@ -190,8 +192,8 @@ public class QuantityMeasurementTest {
     public void givenQuantityTwoInchAndTwoInch_WhenAdded_ShouldNotReturnFourInch()
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        LengthAdapter firstInch = new LengthAdapter(UnitName.INCH, 2.0);
-        LengthAdapter secondInch = new LengthAdapter(UnitName.INCH, 2.0);
+        Length firstInch = new Length(UnitName.INCH, 2.0);
+        Length secondInch = new Length(UnitName.INCH, 2.0);
         double total = firstInch.value + secondInch.value;
         Assert.assertEquals(4.0, total, 0.0);
     }
@@ -203,7 +205,7 @@ public class QuantityMeasurementTest {
         double convertValue = 1.0;
         double firstValue = quantityMeasurement.unitConverter(UnitName.FEET,
                 ConversionType.FEET_TO_INCH, convertValue);
-        LengthAdapter secondValue = new LengthAdapter(UnitName.INCH, 2.0);
+        Length secondValue = new Length(UnitName.INCH, 2.0);
         double total = firstValue + secondValue.value;
         Assert.assertEquals(14.0, total, 0.0);
     }
@@ -226,7 +228,7 @@ public class QuantityMeasurementTest {
     public void givenQuantity2InchAnd2AndHalfCM_WhenAdded_ShouldNotReturnThreeInch()
             throws QuantityMeasurementException {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        LengthAdapter firstValue = new LengthAdapter(UnitName.INCH, 2.0);
+        Length firstValue = new Length(UnitName.INCH, 2.0);
         double secondConvertValue = 5d / 2d;
         double secondValue = quantityMeasurement.unitConverter(UnitName.CM,
                 ConversionType.CM_TO_INCH, secondConvertValue);
@@ -260,8 +262,16 @@ public class QuantityMeasurementTest {
         double convertValue = 1.0;
         double firstValue = quantityMeasurement.unitConverter(UnitName.GALLON,
                 ConversionType.GALLON_TO_LITER, convertValue);
-        VolumeAdapter secondValue = new VolumeAdapter(UnitName.LITER,189d/50d);
+        Volume secondValue = new Volume(UnitName.LITER,189d/50d);
         double total = quantityMeasurement.addition(firstValue, secondValue.value);
         Assert.assertEquals(7.56,total,0.0);
+    }
+
+    @Test
+    public void given1KG_ShouldReturn1000Gram() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double convertValue = 1.0;
+        double convertedValue = quantityMeasurement.unitConverter(UnitName.KG,
+                ConversionType.GALLON_TO_LITER, convertValue);
     }
 }
