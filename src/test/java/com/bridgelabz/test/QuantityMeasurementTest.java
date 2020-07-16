@@ -272,6 +272,29 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double convertValue = 1.0;
         double convertedValue = quantityMeasurement.unitConverter(UnitName.KG,
-                ConversionType.GALLON_TO_LITER, convertValue);
+                ConversionType.KG_TO_GRAM, convertValue);
+        Assert.assertEquals(1000.0,convertedValue,0.0);
+    }
+
+    @Test
+    public void given1Tone_ShouldReturn1000KG() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double convertValue = 1.0;
+        double convertedValue = quantityMeasurement.unitConverter(UnitName.TONE,
+                ConversionType.TONE_TO_KG, convertValue);
+        Assert.assertEquals(1000.0,convertedValue,0.0);
+    }
+
+    @Test
+    public void given1ToneAnd1000Gram_WhenAdded_ShouldReturn1001KG() throws QuantityMeasurementException {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double firstConvertValue = 1.0;
+        double firstValue = quantityMeasurement.unitConverter(UnitName.TONE,
+                ConversionType.TONE_TO_KG, firstConvertValue);
+        double secondConvertValue = 1000.0;
+        double secondValue = quantityMeasurement.unitConverter(UnitName.GRAM,
+                ConversionType.GRAM_TO_KG, secondConvertValue);
+        double total = quantityMeasurement.addition(firstValue, secondValue);
+        Assert.assertEquals(1001.0,total,0.0);
     }
 }
