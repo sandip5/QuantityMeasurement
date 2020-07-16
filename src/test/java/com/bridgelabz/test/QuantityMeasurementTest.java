@@ -1,11 +1,12 @@
 package com.bridgelabz.test;
 
+import com.bridgelabz.enums.ConversionType;
+import com.bridgelabz.enums.QuantityType;
+import com.bridgelabz.enums.UnitName;
 import com.bridgelabz.exception.QuantityMeasurementException;
 import com.bridgelabz.model.Quantity;
 import com.bridgelabz.service.QuantityMeasurement;
-import com.bridgelabz.utility.ConversionType;
-import com.bridgelabz.utility.QuantityType;
-import com.bridgelabz.utility.UnitName;
+import com.bridgelabz.utility.Utility;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,8 +21,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityInFeet_ShouldReturnQuantityInInches()
-            throws QuantityMeasurementException {
+    public void givenQuantityInFeet_ShouldReturnQuantityInInches() throws QuantityMeasurementException {
         double value = 5.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.FEET,
                 ConversionType.FEET_TO_INCH, value);
@@ -115,8 +115,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityInFeet_WhenConvertedFeetToYard_ShouldReturnQuantityInYard()
-            throws QuantityMeasurementException {
+    public void givenQuantityInFeet_WhenConvertedFeetToYard_ShouldReturnQuantityInYard() throws QuantityMeasurementException {
         double convertValue = 3.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.FEET,
                 ConversionType.FEET_TO_YARD, convertValue);
@@ -124,8 +123,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityOneFeet_WhenConvertedFeetToYard_ShouldNotReturnOneYard()
-            throws QuantityMeasurementException {
+    public void givenQuantityOneFeet_WhenConvertedFeetToYard_ShouldNotReturnOneYard() throws QuantityMeasurementException {
         double convertValue = 1.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.FEET,
                 ConversionType.FEET_TO_YARD, convertValue);
@@ -133,8 +131,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityOneInch_WhenConvertedInchToYard_ShouldNotReturnOneYard()
-            throws QuantityMeasurementException {
+    public void givenQuantityOneInch_WhenConvertedInchToYard_ShouldNotReturnOneYard() throws QuantityMeasurementException {
         double convertValue = 1.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.INCH,
                 ConversionType.INCH_TO_YARD, convertValue);
@@ -142,8 +139,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityOneYard_WhenConvertedYardToInch_ShouldReturnThirtySixInch()
-            throws QuantityMeasurementException {
+    public void givenQuantityOneYard_WhenConvertedYardToInch_ShouldReturnThirtySixInch() throws QuantityMeasurementException {
         double convertValue = 1.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.YARD,
                 ConversionType.YARD_TO_INCH, convertValue);
@@ -151,8 +147,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityThirtySixInch_WhenConvertedInchToYard_ShouldReturnOneYard()
-            throws QuantityMeasurementException {
+    public void givenQuantityThirtySixInch_WhenConvertedInchToYard_ShouldReturnOneYard() throws QuantityMeasurementException {
         double convertValue = 36.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.INCH,
                 ConversionType.INCH_TO_YARD, convertValue);
@@ -160,8 +155,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityOneYard_WhenConvertedYardToFeet_ShouldNotReturnThreeFeet()
-            throws QuantityMeasurementException {
+    public void givenQuantityOneYard_WhenConvertedYardToFeet_ShouldNotReturnThreeFeet() throws QuantityMeasurementException {
         double convertValue = 1.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.YARD,
                 ConversionType.YARD_TO_FEET, convertValue);
@@ -169,8 +163,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityTwoInch_WhenConvertedInchToCentimeter_ShouldNotReturnFiveCentiMeter()
-            throws QuantityMeasurementException {
+    public void givenQuantityTwoInch_WhenConvertedInchToCentimeter_ShouldNotReturnFiveCentiMeter() throws QuantityMeasurementException {
         double convertValue = 2.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.INCH,
                 ConversionType.INCH_TO_CM, convertValue);
@@ -178,8 +171,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityFiveCentiMeter_WhenConvertedCMToInch_ShouldNotReturnTwoInch()
-            throws QuantityMeasurementException {
+    public void givenQuantityFiveCentiMeter_WhenConvertedCMToInch_ShouldNotReturnTwoInch() throws QuantityMeasurementException {
         double convertValue = 5.0;
         double convertedQuantity = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.CM,
                 ConversionType.CM_TO_INCH, convertValue);
@@ -207,8 +199,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityOneFeetAndOneFeet_WhenAdded_ShouldNotReturnFourteenInch()
-            throws QuantityMeasurementException {
+    public void givenQuantityOneFeetAndOneFeet_WhenAdded_ShouldNotReturnFourteenInch() throws QuantityMeasurementException {
         double firstConvertValue = 1.0;
         double firstValue = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.FEET,
                 ConversionType.FEET_TO_INCH, firstConvertValue);
@@ -231,8 +222,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityOneGallon_WhenConvertedGallonToLiter_ShouldReturnThreePointSevenEightLitres()
-            throws QuantityMeasurementException {
+    public void givenQuantityOneGallon_WhenConvertedGallonToLiter_ShouldReturnThreePointSevenEightLitres() throws QuantityMeasurementException {
         double convertValue = 1.0;
         double secondValue = quantityMeasurement.unitConverter(QuantityType.VOLUME, UnitName.GALLON,
                 ConversionType.GALLON_TO_LITER, convertValue);
@@ -240,8 +230,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenQuantityOneLiter_WhenConvertedLiterToML_ShouldReturnThousandML()
-            throws QuantityMeasurementException {
+    public void givenQuantityOneLiter_WhenConvertedLiterToML_ShouldReturnThousandML() throws QuantityMeasurementException {
         double convertValue = 1.0;
         double secondValue = quantityMeasurement.unitConverter(QuantityType.VOLUME, UnitName.LITER,
                 ConversionType.LITER_TO_ML, convertValue);
@@ -260,8 +249,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1KG_WhenConvertedKGToGram_ShouldReturn1000Gram()
-            throws QuantityMeasurementException {
+    public void given1KG_WhenConvertedKGToGram_ShouldReturn1000Gram() throws QuantityMeasurementException {
         double convertValue = 1.0;
         double convertedValue = quantityMeasurement.unitConverter(QuantityType.WEIGHT, UnitName.KG,
                 ConversionType.KG_TO_GRAM, convertValue);
@@ -269,8 +257,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Tone_WhenConvertedToneToKG_ShouldReturn1000KG()
-            throws QuantityMeasurementException {
+    public void given1Tone_WhenConvertedToneToKG_ShouldReturn1000KG() throws QuantityMeasurementException {
         double convertValue = 1.0;
         double convertedValue = quantityMeasurement.unitConverter(QuantityType.WEIGHT, UnitName.TONE,
                 ConversionType.TONE_TO_KG, convertValue);
@@ -278,8 +265,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1ToneAnd1000Gram_WhenAdded_ShouldReturn1001KG()
-            throws QuantityMeasurementException {
+    public void given1ToneAnd1000Gram_WhenAdded_ShouldReturn1001KG() throws QuantityMeasurementException {
         double firstConvertValue = 1.0;
         double firstValue = quantityMeasurement.unitConverter(QuantityType.WEIGHT, UnitName.TONE,
                 ConversionType.TONE_TO_KG, firstConvertValue);
@@ -291,8 +277,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given212F_WhenConvertedFahrenheitToCelsius_ShouldReturn100C()
-            throws QuantityMeasurementException {
+    public void given212F_WhenConvertedFahrenheitToCelsius_ShouldReturn100C() throws QuantityMeasurementException {
         double convertValue = 212.0;
         double convertedValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.FAHRENHEIT,
                 ConversionType.FAHRENHEIT_TO_CELSIUS, convertValue);
@@ -300,12 +285,46 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given100C_WhenConvertedCelsiusToFahrenheit_ShouldReturn212F()
-            throws QuantityMeasurementException {
+    public void given100C_WhenConvertedCelsiusToFahrenheit_ShouldReturn212F() throws QuantityMeasurementException {
         double convertValue = 100.0;
         double convertedValue = quantityMeasurement.unitConverter(QuantityType.TEMPERATURE, UnitName.CELSIUS,
                 ConversionType.CELSIUS_TO_FAHRENHEIT, convertValue);
         Assert.assertEquals(212.0, convertedValue, 0.0);
     }
 
+    @Test
+    public void givenTwoDifferentQuantityType_WhenTryToConvert_ShouldThrowException() throws QuantityMeasurementException {
+        double firstConvertValue = 1.0;
+        double firstValue = quantityMeasurement.unitConverter(QuantityType.LENGTH, UnitName.INCH,
+                ConversionType.TONE_TO_KG, firstConvertValue);
+        double secondConvertValue = 1000.0;
+        double secondValue = quantityMeasurement.unitConverter(QuantityType.WEIGHT, UnitName.GRAM,
+                ConversionType.GRAM_TO_KG, secondConvertValue);
+        double total = quantityMeasurement.addition(firstValue, secondValue);
+        Assert.assertEquals(1001.0, total, 0.);
+    }
+
+    @Test
+    public void givenDifferentQuantity_WhenTryingToConvert_ShouldThrowException() {
+        try {
+            Quantity firstLength = new Quantity(UnitName.GALLON, 0.0);
+            Quantity secondLength = new Quantity(UnitName.FEET, 0.0);
+            boolean result = new Utility().compare(firstLength, secondLength);
+            Assert.assertTrue(result);
+        } catch (QuantityMeasurementException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void givenNegativeValue_WhenTryingToConvert_ShouldThrowException() {
+        try {
+            Quantity firstLength = new Quantity(UnitName.FEET, -2.0);
+            Quantity secondLength = new Quantity(UnitName.FEET, 0.0);
+            boolean result = new Utility().compare(firstLength, secondLength);
+            Assert.assertTrue(result);
+        } catch (QuantityMeasurementException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

@@ -1,7 +1,7 @@
 package com.bridgelabz.adapter;
 
-import com.bridgelabz.utility.ConversionType;
-import com.bridgelabz.utility.UnitName;
+import com.bridgelabz.enums.ConversionType;
+import com.bridgelabz.enums.UnitName;
 
 public class Temperature extends QuantityMeasurementAdapter {
     public ConversionType conversionType;

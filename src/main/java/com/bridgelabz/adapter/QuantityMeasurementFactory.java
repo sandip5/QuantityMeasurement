@@ -1,8 +1,8 @@
 package com.bridgelabz.adapter;
 
-import com.bridgelabz.utility.ConversionType;
-import com.bridgelabz.utility.QuantityType;
-import com.bridgelabz.utility.UnitName;
+import com.bridgelabz.enums.ConversionType;
+import com.bridgelabz.enums.QuantityType;
+import com.bridgelabz.enums.UnitName;
 
 public class QuantityMeasurementFactory {
     public double loadConversionDetail(QuantityType quantityType, UnitName type, ConversionType convertTo, double convertValue) {

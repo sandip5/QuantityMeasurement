@@ -1,7 +1,7 @@
 package com.bridgelabz.adapter;
 
-import com.bridgelabz.utility.ConversionType;
-import com.bridgelabz.utility.UnitName;
+import com.bridgelabz.enums.ConversionType;
+import com.bridgelabz.enums.UnitName;
 
 public abstract class QuantityMeasurementAdapter {
     public abstract double unitType(UnitName type, ConversionType convertTo, double convertValue);
@@ -14,9 +14,9 @@ public abstract class QuantityMeasurementAdapter {
     public double temperatureUnitConverter(ConversionType convertTo, double convertValue) {
         switch (convertTo) {
             case FAHRENHEIT_TO_CELSIUS:
-                return (convertValue - 32.0) * (5d / 9d);
+                return (convertValue - convertTo.constantFactor) * convertTo.conversionFactor;
             case CELSIUS_TO_FAHRENHEIT:
-                return (convertValue * (9d / 5d)) + 32;
+                return (convertValue * convertTo.conversionFactor) + convertTo.constantFactor;
             default:
                 throw new IllegalStateException("Unexpected value: " + convertTo);
         }

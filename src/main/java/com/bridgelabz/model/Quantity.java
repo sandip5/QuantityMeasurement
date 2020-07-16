@@ -1,7 +1,8 @@
 package com.bridgelabz.model;
 
+import com.bridgelabz.enums.UnitName;
 import com.bridgelabz.exception.QuantityMeasurementException;
-import com.bridgelabz.utility.UnitName;
+import com.bridgelabz.utility.Utility;
 
 public class Quantity {
     public double value;
@@ -11,6 +12,7 @@ public class Quantity {
         try {
             this.unit = type;
             this.value = value;
+            new Utility().checkNegativeValue(value);
         } catch (NullPointerException e) {
             throw new QuantityMeasurementException("Null Value Provided",
                     QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION);
